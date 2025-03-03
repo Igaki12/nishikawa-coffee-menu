@@ -4,7 +4,7 @@
     <!-- 背景グラデーション（ヘッダーのグラデーションの逆順） -->
     <linearGradient id="footerGradient" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#8B4513"/>
-      <stop offset="100%" stop-color="#5C3317"/>
+      <stop offset="100%" stop-color="#D2B48C"/>
     </linearGradient>
 
     <!-- Glowエフェクト用フィルター -->

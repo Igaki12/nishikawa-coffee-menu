@@ -45,7 +45,7 @@
       <animate attributeName="y" from="245" to="115" dur="3s" fill="freeze"/>
       <animate attributeName="height" from="0" to="130" dur="3s" fill="freeze"/>
       <!-- 注ぎ終わった後、1秒で濃いブラウンから薄いブラウンへ色変化 -->
-      <animate attributeName="fill" from="#4B2E1F" to="#A67B5B" begin="3s" dur="1s" fill="freeze"/>
+      <animate attributeName="fill" from="#4B2E1F" to="#A67B5B" begin="3s" dur="0.7s" fill="freeze"/>
     </rect>
   
     <!-- 読み込みテキストのアニメーション -->

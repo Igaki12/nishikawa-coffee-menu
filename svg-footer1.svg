@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150">
+  <defs>
+    <!-- 暖色系グラデーション -->
+    <linearGradient id="footerGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="100%" stop-color="#5C3317"/>
+    </linearGradient>
+  
+    <!-- Glowエフェクト用フィルター -->
+    <filter id="footerGlow">
+      <feGaussianBlur stdDeviation="0" result="blur">
+        <animate attributeName="stdDeviation" values="0;2;0" dur="3s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景のグラデーション -->
+  <rect width="1000" height="150" fill="url(#footerGradient)"/>
+  
+  <!-- 中央にテキスト -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-size="30" fill="#fff8f0" font-family="sans-serif" filter="url(#footerGlow)">
+    &copy; 2025 All rights reserved.
+  </text>
+</svg>

@@ -3,7 +3,7 @@
       <!-- 暖色系グラデーション -->
       <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#8B4513"/>
-        <stop offset="100%" stop-color="#F5DEB3"/>
+        <stop offset="100%" stop-color="#5C3317"/>
       </linearGradient>
   
       <!-- Glowエフェクト用フィルター -->
@@ -24,10 +24,10 @@
   
     <!-- 中央にテキスト -->
     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
-        font-size="100" fill="#fff" font-family="sans-serif" font-weight="bold" filter="url(#glow)">
+        font-size="100" fill="#fff8f0" font-family="sans-serif" font-weight="bold" filter="url(#glow)">
       西川自由珈琲店
     </text>
   
     <!-- 波型の下端ボーダー -->
-    <path d="M0,280 C250,320 750,240 1000,280 L1000,300 L0,300 Z" fill="#fff"/>
+    <path d="M0,270 C350,350 950,100 1000,270 L1000,300 L0,300 Z" fill="#fff8f0"/>
   </svg>

@@ -1,0 +1,33 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">
+  <defs>
+    <!-- 背景グラデーション（ヘッダーのグラデーションの逆順） -->
+    <linearGradient id="footerGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="100%" stop-color="#5C3317"/>
+    </linearGradient>
+
+    <!-- Glowエフェクト用フィルター -->
+    <filter id="glowFooter">
+      <feGaussianBlur stdDeviation="0" result="blur">
+        <animate attributeName="stdDeviation" values="0;2;0" dur="3s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景のグラデーション -->
+  <rect width="1000" height="300" fill="url(#footerGradient)"/>
+
+  <!-- 中央にテキスト -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
+        font-size="50" fill="#fff8f0" font-family="sans-serif" font-weight="bold" filter="url(#glowFooter)">
+    (c) 2025 All rights reserved.
+  </text>
+
+  <!-- 波型の上端ボーダー（ヘッダーの波型パスを垂直反転） -->
+<path d="M1000,30 C650,-50 50,200 0,30 L0,0 L1000,0 Z" fill="#fff8f0"/>
+</svg>

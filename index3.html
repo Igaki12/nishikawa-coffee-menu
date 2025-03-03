@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>西川自由珈琲店 メニュー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 全体のスタイル */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff8f0;
+      color: #4b3621;
+    }
+
+    /* ローディング画面 */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loading-text {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: #4b3621;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    /* ヘッダー下端の波 */
+    .header-wave {
+      margin-bottom: -1px; /* 波とコンテンツの境界が目立たないように調整 */
+    }
+    .header-wave svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* メインコンテンツ */
+    main {
+      padding: 20px;
+    }
+    .menu {
+      background-color: #fff3e6;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .menu h2 {
+      text-align: center;
+      color: #8B4513;
+    }
+    .about {
+      margin: 20px auto;
+      max-width: 600px;
+      background-color: #fff3e6;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    /* フッター */
+    footer {
+      background-color: #4b3621;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    /* フッター上端の波 */
+    .footer-wave {
+      margin-top: -1px; /* 波とフッターの境界をなめらかに */
+      transform: translateY(-1px) rotate(180deg); /* 上端の波を逆さにして配置 */
+    }
+    .footer-wave svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    footer button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #8B4513;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    footer button:hover {
+      background-color: #a0522d;
+    }
+
+    /* SVGコーヒーカップのスタイル（ローディング画面用） */
+    .coffee-cup {
+      width: 200px;
+    }
+    /* コーヒーの液面波 */
+    #coffee-wave {
+      transition: all 0.3s ease;
+    }
+    /* コーヒーの水滴 */
+    .droplet {
+      fill: #4b3621;
+    }
+  </style>
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <!-- SVGでコーヒーカップを描画 -->
+    <svg class="coffee-cup" viewBox="0 0 200 200">
+      <!-- カップの外枠 -->
+      <path d="M50,50 
+               h100 
+               a10,10 0 0 1 10,10 
+               v60 
+               a10,10 0 0 1 -10,10 
+               h-100 
+               a10,10 0 0 1 -10,-10 
+               v-60 
+               a10,10 0 0 1 10,-10
+               z
+               M160,70
+               q15,0 15,20
+               q0,20 -15,20
+               z"
+            fill="none"
+            stroke="#4b3621"
+            stroke-width="3" />
+      <!-- コーヒーの液面（波形）-->
+      <path id="coffee-wave"
+            d="M60,120 
+               Q100,120 140,120 
+               T180,120 
+               V130 
+               H60 Z"
+            fill="#4b3621">
+        <!-- 液面が上がるアニメーション(0→3秒) -->
+        <animate attributeName="d"
+                 begin="0s"
+                 dur="3s"
+                 fill="freeze"
+                 from="M60,160 Q100,160 140,160 T180,160 V160 H60 Z"
+                 to="M60,120 Q100,120 140,120 T180,120 V130 H60 Z" />
+        <!-- 色が変わるアニメーション(3→5秒) -->
+        <animate attributeName="fill"
+                 begin="3s"
+                 dur="2s"
+                 fill="freeze"
+                 from="#4b3621"
+                 to="#f5deb3" />
+      </path>
+      <!-- コーヒーの水滴（左右へ広がるイメージ） -->
+      <circle class="droplet" cx="100" cy="130" r="3">
+        <animate attributeName="cx" begin="1s" dur="2s" fill="freeze"
+                 from="100" to="70" />
+        <animate attributeName="cy" begin="1s" dur="2s" fill="freeze"
+                 from="130" to="110" />
+      </circle>
+      <circle class="droplet" cx="100" cy="130" r="3">
+        <animate attributeName="cx" begin="1s" dur="2s" fill="freeze"
+                 from="100" to="130" />
+        <animate attributeName="cy" begin="1s" dur="2s" fill="freeze"
+                 from="130" to="110" />
+      </circle>
+    </svg>
+    <p class="loading-text">読み込み中...</p>
+  </div>
+
+  <!-- ヘッダー -->
+  <header>
+    <h1>西川自由珈琲店</h1>
+  </header>
+  <!-- ヘッダー下端の波 -->
+  <div class="header-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fff8f0" d="M0,40 C 360,80 1080,0 1440,40 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <section class="menu">
+      <h2>ドリップコーヒーメニュー</h2>
+      <p>クラシック ドリップコーヒー ¥400 <br><small>(砂糖はお好みで追加可能)</small></p>
+    </section>
+
+    <section class="about">
+      <h2>こだわりの珈琲</h2>
+      <p>
+        当店は、選び抜かれた豆と心を込めたドリップで、<br>
+        毎日を豊かにする一杯をお届けしています。<br>
+        温かい雰囲気の店内で、ゆっくりと至福のひとときをお過ごしください。
+      </p>
+    </section>
+  </main>
+
+  <!-- フッター上端の波 -->
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <!-- 上端なので同じ波を上下逆にして使うか、パスを反転させてもOK -->
+      <path fill="#fff8f0" d="M0,60 C 360,20 1080,100 1440,60 L1440,0 L0,0 Z"></path>
+    </svg>
+  </div>
+  <!-- フッター -->
+  <footer>
+    <p>姫路市石倉</p>
+    <button id="contactBtn">お問い合わせ</button>
+  </footer>
+
+  <script>
+    // ページ読み込み時に最低5秒間ローディング画面を表示
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        document.getElementById('loading').style.display = 'none';
+      }, 5000);
+    });
+
+    // お問い合わせボタンのクリックイベント
+    document.getElementById('contactBtn').addEventListener('click', function() {
+      alert("お問い合わせは info@nishikawa-coffee.jp までご連絡ください。");
+    });
+  </script>
+</body>
+</html>

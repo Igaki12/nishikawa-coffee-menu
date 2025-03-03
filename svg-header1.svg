@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">
+    <defs>
+      <!-- 暖色系グラデーション -->
+      <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8B4513"/>
+        <stop offset="100%" stop-color="#F5DEB3"/>
+      </linearGradient>
+  
+      <!-- Glowエフェクト用フィルター -->
+      <filter id="glow">
+        <!-- 通常はクリア、3秒周期でぼかしが強まる -->
+        <feGaussianBlur stdDeviation="0" result="blur">
+          <animate attributeName="stdDeviation" values="0;2;0" dur="3s" repeatCount="indefinite" />
+        </feGaussianBlur>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+  
+    <!-- 背景のグラデーション -->
+    <rect width="1000" height="300" fill="url(#bgGradient)"/>
+  
+    <!-- 中央にテキスト -->
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
+        font-size="100" fill="#fff" font-family="sans-serif" font-weight="bold" filter="url(#glow)">
+      西川自由珈琲店
+    </text>
+  
+    <!-- 波型の下端ボーダー -->
+    <path d="M0,280 C250,320 750,240 1000,280 L1000,300 L0,300 Z" fill="#fff"/>
+  </svg>

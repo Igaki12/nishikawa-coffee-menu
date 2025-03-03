@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>西川自由珈琲 メニュー</title>
+  <!-- Google Fonts: Lobster（ヘッダー用）、Noto Sans JP（日本語用） -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <style>
+    /* =======================
+       ローディング画面のスタイル
+    ========================== */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fdf6e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      transition: opacity 3s ease;
+    }
+    .loader-container {
+      text-align: center;
+    }
+    .coffee-cup {
+      position: relative;
+      width: 80px;
+      height: 100px;
+      border: 2px solid #6f4e37;
+      border-radius: 5px;
+      margin: 0 auto 10px;
+      overflow: hidden;
+    }
+    .coffee {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: #6f4e37;
+      animation: brew 2s ease-in-out infinite;
+    }
+    .cup-handle {
+      position: absolute;
+      right: -22px;
+      top: 20px;
+      width: 20px;
+      height: 40px;
+      border: 2px solid #6f4e37;
+      border-left: none;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    /* シンプルな蒸気アニメーション */
+    .steam {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      opacity: 0;
+      animation: steam 2s ease-in-out infinite;
+    }
+    .steam.steam2 {
+      left: 60%;
+      animation-delay: 1s;
+    }
+    @keyframes brew {
+      0% { height: 0; }
+      50% { height: 80%; }
+      100% { height: 0; }
+    }
+    @keyframes steam {
+      0% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -30px) scale(0.8); opacity: 0; }
+    }
+    
+    /* =======================
+       メインコンテンツのスタイル
+    ========================== */
+    body, h1, p, table, th, td {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fdf6e3; /* 温かみのある背景 */
+      color: #333;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      font-family: 'Lobster', cursive;
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .qr-code {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .qr-code img {
+      width: 150px;
+      height: 150px;
+      transition: transform 0.3s ease;
+    }
+    .qr-code img:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+    .menu {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .menu:hover {
+      transform: scale(1.02);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #f0e6d2;
+      text-align: left;
+    }
+    .menu-item {
+      font-size: 1.2em;
+    }
+    .description {
+      font-size: 0.9em;
+      color: #666;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    /* ヘッダーのフェードインアニメーション */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="loading">
+    <div class="loader-container">
+      <div class="coffee-cup">
+        <div class="coffee"></div>
+        <div class="cup-handle"></div>
+        <div class="steam"></div>
+        <div class="steam steam2"></div>
+      </div>
+      <p>コーヒーを淹れています...</p>
+    </div>
+  </div>
+  
+  <!-- メインコンテンツ -->
+  <header>
+    西川自由珈琲
+  </header>
+  
+  <div class="qr-code">
+    <p>テーブルに貼ってあるQRコードからアクセスしてください</p>
+    <img src="https://via.placeholder.com/150?text=QR+Code" alt="QRコード">
+  </div>
+  
+  <div class="menu">
+    <table>
+      <thead>
+        <tr>
+          <th>メニュー</th>
+          <th>詳細</th>
+          <th>価格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="menu-item">ドリップコーヒー</td>
+          <td class="description">砂糖をお好みで追加可能</td>
+          <td>¥400</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <footer>
+    <p>姫路市石倉</p>
+    <p>山陽自動車道 姫路西JCT 降りてすぐ</p>
+    <p>JR姫新線 太市駅から北に約1000m</p>
+    <p>バス停 石倉 降りてすぐ</p>
+  </footer>
+  
+  <script>
+    // ページ読み込み後、ローディング画面をフェードアウトして非表示にする
+    window.addEventListener('load', function() {
+      const loading = document.getElementById('loading');
+      loading.style.opacity = '0';
+      setTimeout(() => {
+        loading.style.display = 'none';
+      }, 1500);
+    });
+    
+    // メニューの各行にクリック時のハイライト効果を追加
+    document.addEventListener('DOMContentLoaded', function() {
+      const rows = document.querySelectorAll('.menu tbody tr');
+      rows.forEach(function(row) {
+        row.addEventListener('click', function() {
+          row.style.backgroundColor = '#f9f1e7';
+          setTimeout(function() {
+            row.style.backgroundColor = '';
+          }, 300);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

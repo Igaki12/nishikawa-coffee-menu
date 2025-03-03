@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+      <!-- カップ内部のクリッピング領域 -->
+      <clipPath id="cupClip">
+        <path d="M 120,105 
+                 L 280,105 
+                 Q 285,105 285,115 
+                 L 285,235 
+                 Q 280,245 260,245 
+                 L 140,245 
+                 Q 120,245 115,235 
+                 L 115,115 
+                 Q 115,105 120,105 Z"/>
+      </clipPath>
+    </defs>
+  
+    <!-- カップ本体・ハンドル（外枠） -->
+    <g id="cup">
+      <!-- カップ本体 -->
+      <path d="M 120,100 
+               L 280,100 
+               Q 290,100 290,110 
+               L 290,240 
+               Q 280,250 260,250 
+               L 140,250 
+               Q 120,250 110,240 
+               L 110,110 
+               Q 110,100 120,100 Z" 
+            fill="none" stroke="#5A3E36" stroke-width="4"/>
+      <!-- カップハンドル -->
+      <path d="M 290,150 C 360,140 330,210 290,210" 
+            fill="none" stroke="#5A3E36" stroke-width="4"/>
+      <!-- 皿 -->
+      <path d="M 100,250 
+           Q 200,270 300,250 
+           Q 200,290 100,250 Z" 
+          fill="none" stroke="#5A3E36" stroke-width="4"/>
+      
+        </g>
+  
+    <!-- コーヒー注入のアニメーション -->
+    <!-- クリップパス内に、下から上へ注がれる矩形を配置 -->
+    <rect x="120" y="245" width="160" height="0" fill="#4B2E1F" clip-path="url(#cupClip)">
+      <!-- 3秒で下部（y=245）から上部（y=115）へ移動しつつ、fill領域が130pxに伸びる -->
+      <animate attributeName="y" from="245" to="115" dur="3s" fill="freeze"/>
+      <animate attributeName="height" from="0" to="130" dur="3s" fill="freeze"/>
+      <!-- 注ぎ終わった後、1秒で濃いブラウンから薄いブラウンへ色変化 -->
+      <animate attributeName="fill" from="#4B2E1F" to="#A67B5B" begin="3s" dur="1s" fill="freeze"/>
+    </rect>
+  
+    <!-- 読み込みテキストのアニメーション -->
+    <!-- 各文字を個別のグループに配置し、中央揃え＋staggeredなpulseアニメーションを適用 -->
+    <g id="loading-text">
+      <!-- 各文字のx座標は、全体を約200px幅に収め、中央配置（viewBox幅400の中央） -->
+      <g transform="translate(112.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">読</text>
+        <animateTransform attributeName="transition"
+        type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0s"/>
+      </g>
+      <g transform="translate(137.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">み</text>
+        <animateTransform attributeName="transition"
+        type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.1s"/>
+      </g>
+      <g transform="translate(162.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">こ</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.2s"/>
+      </g>
+      <g transform="translate(187.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">み</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+      </g>
+      <g transform="translate(212.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">中</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.4s"/>
+      </g>
+      <g transform="translate(237.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">.</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+      </g>
+      <g transform="translate(262.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">.</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.6s"/>
+      </g>
+      <g transform="translate(287.5,320)" transform-box="fill-box" transform-origin="center">
+        <text text-anchor="middle" font-size="20" fill="#5A3E36" font-family="sans-serif">.</text>
+        <animateTransform attributeName="transition" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" begin="0.7s"/>
+      </g>
+    </g>
+  </svg>

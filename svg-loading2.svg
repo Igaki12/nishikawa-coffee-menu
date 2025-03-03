@@ -42,10 +42,10 @@
     <!-- クリップパス内に、下から上へ注がれる矩形を配置 -->
     <rect x="120" y="245" width="160" height="0" fill="#4B2E1F" clip-path="url(#cupClip)">
       <!-- 3秒で下部（y=245）から上部（y=115）へ移動しつつ、fill領域が130pxに伸びる -->
-      <animate attributeName="y" from="245" to="115" dur="3s" fill="freeze"/>
-      <animate attributeName="height" from="0" to="130" dur="3s" fill="freeze"/>
+      <animate attributeName="y" from="245" to="115" dur="3s" fill="freeze" keyTimes="0;1"/>
+      <animate attributeName="height" from="0" to="130" dur="3s" fill="freeze" keyTimes="0;1"/>
       <!-- 注ぎ終わった後、1秒で濃いブラウンから薄いブラウンへ色変化 -->
-      <animate attributeName="fill" from="#4B2E1F" to="#A67B5B" begin="3s" dur="0.7s" fill="freeze"/>
+      <animate attributeName="fill" from="#4B2E1F" to="#A67B5B" begin="3s" dur="0.7s" fill="freeze" keyTimes="0;1"/>
     </rect>
   
     <!-- 読み込みテキストのアニメーション -->

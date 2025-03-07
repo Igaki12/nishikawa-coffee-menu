@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>西川自由珈琲店 メニュー</title>
+  <!-- Web App Manifestへのリンクを追加 -->
+  <link rel="manifest" href="manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     /* 全体の温かみのあるデザイン */
@@ -211,5 +213,19 @@
     //   alert("お問い合わせは info@nishikawa-coffee.jp までご連絡ください。");
     // });
   </script>
+
+<script>
+  // Service Workerの登録
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('service-worker.js')
+      .then(() => {
+        console.log('Service Worker registered successfully.');
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
+</script>
 </body>
 </html>

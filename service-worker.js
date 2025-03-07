@@ -6,9 +6,9 @@ const urlsToCache = [
     '/index.html',
     '/manifest.json',
     '/icons/icon_top_654x654.png',
-    'svg-footer2.svg',
-    'svg-header1.svg',
-    'svg-loading1.svg',
+    '/svg-footer2.svg',
+    '/svg-header1.svg',
+    '/svg-loading1.svg',
 ];
 
 // インストール時にキャッシュを作成

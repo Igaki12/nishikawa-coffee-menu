@@ -1,7 +1,7 @@
 {
     "name": "西川自由珈琲店メニュー",
     "short_name": "西川自由珈琲",
-    "start_url": "/nishikawa-coffee-menu/",
+    "start_url": "/nishikawa-coffee-menu/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
